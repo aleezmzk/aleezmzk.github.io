@@ -346,3 +346,59 @@ h3 {
     transition: none !important;
   }
 }
+/* Cores usadas quando o tema escuro está ativo */
+body.tema-escuro {
+  --fundo: #171b18;
+  --texto: #f1f3eb;
+  --suave: #b0b8ac;
+  --verde: #a8cfad;
+  --linha: #363e35;
+
+  color-scheme: dark;
+}
+
+.botao-tema {
+  padding: 8px 12px;
+  border: 1px solid var(--linha);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  cursor: pointer;
+}
+
+.botao-tema:hover {
+  border-color: var(--verde);
+}
+
+.botao-tema:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 4px;
+}
+
+nav {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+body.tema-escuro .preview,
+body.tema-escuro .status {
+  background: #263426;
+}
+
+body.tema-escuro .preview {
+  border-color: var(--linha);
+}
+
+/* Mantém espaço para os links e o botão em telas pequenas */
+@media (max-width: 500px) {
+  .cabecalho {
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  nav {
+    justify-content: flex-end;
+    gap: 12px;
+  }
+}
