@@ -1,0 +1,348 @@
+/* Cores e configurações que podemos reutilizar */
+:root {
+  --fundo: #f7f7f2;
+  --texto: #20231f;
+  --suave: #62675f;
+  --verde: #41694b;
+  --linha: #dcded5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #d5e5b5;
+  color: var(--texto);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 6px;
+}
+
+.cabecalho,
+main,
+.rodape {
+  width: min(1120px, 88%);
+  margin-inline: auto;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.logo span {
+  color: var(--verde);
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+}
+
+nav a,
+.rodape a,
+.rodape-apresentacao a {
+  transition: color 180ms;
+}
+
+nav a:hover,
+.rodape a:hover,
+.rodape-apresentacao a:hover {
+  color: var(--verde);
+}
+
+/* A primeira tela */
+.apresentacao {
+  padding-top: clamp(60px, 10vw, 130px);
+}
+
+.etiqueta,
+.rotulo,
+.rodape-apresentacao,
+.preview-legenda,
+.status {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+.etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--suave);
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--verde);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #41694b12;
+}
+
+h1 {
+  margin: 34px 0;
+  font-size: clamp(46px, 8.5vw, 110px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+
+h1 span {
+  color: var(--verde);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.introducao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.introducao p {
+  max-width: 440px;
+  margin: 0;
+  color: var(--suave);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  flex-shrink: 0;
+  padding: 20px 24px;
+  background: var(--texto);
+  color: var(--fundo);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 180ms, transform 180ms;
+}
+
+.botao:hover {
+  background: var(--verde);
+  transform: translateY(-3px);
+}
+
+.rodape-apresentacao {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 90px;
+  padding-block: 24px;
+  color: var(--suave);
+  border-bottom: 1px solid var(--linha);
+}
+
+/* Sobre e projetos */
+.secao {
+  padding-block: 80px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.sobre {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+}
+
+.rotulo {
+  margin: 0 0 18px;
+  color: var(--suave);
+}
+
+h2 {
+  margin: 0 0 24px;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+}
+
+.descricao {
+  max-width: 560px;
+  color: var(--suave);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tecnologias li {
+  padding: 9px 15px;
+  border: 1px solid var(--linha);
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.titulo-secao {
+  margin-bottom: 36px;
+}
+
+.preview {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 32px;
+  overflow: hidden;
+  background: #e7ebdf;
+  border: 1px solid #d9dfcf;
+  border-radius: 8px;
+}
+
+.preview-numero {
+  color: var(--verde);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+
+.preview-texto {
+  align-self: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(27px, 5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+
+.preview-texto span {
+  color: var(--verde);
+}
+
+.preview-legenda {
+  color: var(--suave);
+}
+
+.projeto-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.projeto-info .rotulo {
+  margin-bottom: 8px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.status {
+  padding: 8px 12px;
+  color: var(--verde);
+  background: #e7ebdf;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-block: 32px;
+}
+
+.rodape p,
+.rodape > a:last-child {
+  color: var(--suave);
+  font-size: 12px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 700px) {
+  nav {
+    gap: 20px;
+  }
+
+  .introducao,
+  .projeto-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sobre {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .secao {
+    padding-block: 56px;
+  }
+
+  .rodape-apresentacao {
+    margin-top: 56px;
+    flex-wrap: wrap;
+  }
+
+  .preview {
+    min-height: 240px;
+    padding: 24px;
+  }
+
+  .rodape {
+    flex-wrap: wrap;
+  }
+}
+
+/* Respeita quem prefere evitar movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
