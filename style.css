@@ -401,4 +401,28 @@ body.tema-escuro .preview {
     justify-content: flex-end;
     gap: 12px;
   }
+  
+}
+.voltar-topo {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  background: var(--texto);
+  color: var(--fundo);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.voltar-topo:hover {
+  background: var(--verde);
+}
+
+.voltar-topo:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 4px;
 }

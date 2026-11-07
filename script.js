@@ -43,3 +43,22 @@ botaoTema.addEventListener("click", () => {
     // Mantém a troca de tema mesmo sem conseguir salvar.
   }
 });
+
+const botaoTopo = document.querySelector("#voltar-topo");
+
+function atualizarBotaoTopo() {
+  botaoTopo.hidden = window.scrollY < 300;
+}
+
+window.addEventListener("scroll", atualizarBotaoTopo, {
+  passive: true
+});
+
+botaoTopo.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+});
+
+atualizarBotaoTopo();
