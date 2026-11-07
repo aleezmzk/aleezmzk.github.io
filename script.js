@@ -1,12 +1,9 @@
-// Encontra o botão no HTML.
 const botaoTema = document.querySelector("#botao-tema");
 
-// Executa esta função toda vez que o botão recebe um clique.
-botaoTema.addEventListener("click", () => {
-  // Adiciona ou remove a classe e informa se ela ficou ativa.
-  const temaEscuroAtivo = document.body.classList.toggle("tema-escuro");
+// Aplica o tema e atualiza o botão.
+function aplicarTema(temaEscuroAtivo) {
+  document.body.classList.toggle("tema-escuro", temaEscuroAtivo);
 
-  // Atualiza o texto e as informações de acessibilidade.
   botaoTema.textContent = temaEscuroAtivo
     ? "Tema claro ☀"
     : "Tema escuro ☾";
@@ -17,4 +14,32 @@ botaoTema.addEventListener("click", () => {
     "aria-label",
     temaEscuroAtivo ? "Ativar tema claro" : "Ativar tema escuro"
   );
+}
+
+// Recupera a preferência salva, se o navegador permitir.
+let temaSalvo = null;
+
+try {
+  temaSalvo = localStorage.getItem("tema");
+} catch {
+  // O botão continua funcionando se o armazenamento estiver bloqueado.
+}
+
+aplicarTema(temaSalvo === "escuro");
+
+// Troca o tema e salva a nova preferência.
+botaoTema.addEventListener("click", () => {
+  const temaEscuroAtivo =
+    !document.body.classList.contains("tema-escuro");
+
+  aplicarTema(temaEscuroAtivo);
+
+  try {
+    localStorage.setItem(
+      "tema",
+      temaEscuroAtivo ? "escuro" : "claro"
+    );
+  } catch {
+    // Mantém a troca de tema mesmo sem conseguir salvar.
+  }
 });
