@@ -62,3 +62,18 @@ botaoTopo.addEventListener("click", () => {
 });
 
 atualizarBotaoTopo();
+
+const botaoCuriosidade = document.querySelector("#botao-curiosidade");
+const curiosidade = document.querySelector("#curiosidade");
+
+botaoCuriosidade.addEventListener("click", () => {
+  curiosidade.hidden = !curiosidade.hidden;
+
+  const estaAberta = !curiosidade.hidden;
+
+  botaoCuriosidade.setAttribute("aria-expanded", String(estaAberta));
+
+  botaoCuriosidade.textContent = estaAberta
+    ? "Esconder curiosidade −"
+    : "Uma curiosidade sobre mim +";
+});

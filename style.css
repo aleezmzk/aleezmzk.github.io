@@ -401,7 +401,7 @@ body.tema-escuro .preview {
     justify-content: flex-end;
     gap: 12px;
   }
-  
+
 }
 .voltar-topo {
   position: fixed;
@@ -425,4 +425,8 @@ body.tema-escuro .preview {
 .voltar-topo:focus-visible {
   outline: 2px solid var(--verde);
   outline-offset: 4px;
+}
+
+#botao-curiosidade {
+  margin-top: 24px;
 }
