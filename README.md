@@ -28,3 +28,8 @@ e abra o index.html no navegador.
 - Adicionar novos projetos.
 - Praticar interações com JavaScript.
 - Continuar melhorando a acessibilidade.
+
+
+## Desenvolvimento
+
+O projeto agora é atualizado localmente com Git e publicado pelo GitHub Pages.
