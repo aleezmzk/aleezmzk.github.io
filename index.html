@@ -1,153 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfólio de Alessandro Gava. Projetos e aprendizados em desenvolvimento web."
-    >
-    <title>Alessandro Gava — Portfólio</title>
-    <link rel="stylesheet" href="style.css">
+      content="Alessandro Gava, desenvolvedor front-end em formação. Projetos com HTML, CSS e JavaScript, da ideia à interface."
+    />
+    <meta name="theme-color" content="#101114" />
+    <title>Alessandro Gava — Desenvolvimento web</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-
-  <body>
-    <header class="cabecalho">
-      <a class="logo" href="#" aria-label="Página inicial">ag<span>.</span></a>
-
+  <body class="tema-escuro" id="inicio">
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho container">
+      <a class="logo" href="#inicio" aria-label="Alessandro Gava — início"
+        >ag<span>↗</span></a
+      >
+      <span class="identificador"
+        >Código, curiosidade<br />e uma ideia de cada vez.</span
+      >
       <nav aria-label="Navegação principal">
-        <a 
-        href="https://github.com/aleezmzk"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-    <button
-        class="botao-tema"
-        id="botao-tema"
-        type="button"
-        aria-label="Ativar tema escuro"
-        aria-pressed="false"
-    >
-        Tema escuro ☾
-    </button>
+        <a href="#projetos">Projetos <sup>02</sup></a>
         <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos <span aria-hidden="true">↗</span></a>
+        <a href="#contato">Contato ↗</a>
+
+        <a
+          href="https://www.linkedin.com/in/alessandro-gava-9a256844a/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+
+        <button id="botao-tema" type="button" aria-pressed="true">
+          Tema claro ☀
+        </button>
       </nav>
     </header>
-
-    <main>
-      <section class="apresentacao" aria-labelledby="titulo">
-        <p class="etiqueta">
-          <span class="ponto" aria-hidden="true"></span>
-          Alessandro Gava / Desenvolvedor em formação
-        </p>
-
+    <main id="conteudo">
+      <section class="hero container" aria-labelledby="titulo">
+        <div class="hero-topo">
+          <p class="micro">
+            <span class="ponto"></span> DESENVOLVEDOR FRONT-END EM FORMAÇÃO
+          </p>
+          <span class="micro edicao">BRASÍLIA, BR · PORTFÓLIO / 2026</span>
+        </div>
         <h1 id="titulo">
-          Ideias ganham<br>
-          forma com <span>código.</span>
+          Alessandro<br /><span class="sobrenome"
+            >Gava<span class="asterisco" aria-hidden="true">✳</span></span
+          ><span class="sr-only"> — Desenvolvedor front-end em formação</span>
         </h1>
-
-        <div class="introducao">
+        <div class="hero-base">
           <p>
-            Sou Alessandro Gava, estudante de desenvolvimento web.
-            Este é meu espaço para transformar aprendizado em projetos reais.
+            Transformando curiosidade em interfaces.<br />Aprendendo com
+            projetos que saem da ideia<br class="desktop" />
+            e começam a funcionar.
           </p>
-
-          <a class="botao" href="#projetos">
-            Explore meu trabalho <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <div class="rodape-apresentacao">
-          <span>Portfólio pessoal / 2026</span>
-          <a href="#sobre">Continue explorando ↓</a>
-        </div>
-      </section>
-
-      <section class="sobre secao" id="sobre">
-        <p class="rotulo">01 / Sobre mim</p>
-
-        <div>
-          <h2>Curiosidade como<br>ponto de partida.</h2>
-          <p class="descricao">
-            Sou Alessandro Gava e estou iniciando minha jornada no
-            desenvolvimento web. Gosto de tecnologia e de descobrir como
-            transformar ideias em soluções através do código. Busco construir
-            uma base sólida, colocar meus conhecimentos em prática e crescer
-            profissionalmente como desenvolvedor.
-        </p>
-
-          <ul class="tecnologias" aria-label="Tecnologias em estudo">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-          </ul>
-
-          <button
-            id="botao-curiosidade"
-            class="botao-tema"
-            type="button"
-            aria-expanded="false"
-            aria-controls="curiosidade"
+          <a href="#projetos" class="botao"
+            >Explore os projetos <span aria-hidden="true">↘</span></a
           >
-            Uma curiosidade sobre mim +
-        </button>
-
-        <p id="curiosidade" class="descricao" hidden>
-            Fora do código, gosto de passar tempo com minha namorada,
-            jogar videogame e acompanhar Fórmula 1. Carros e tecnologia
-            também estão entre minhas paixões.
-        </p>
+        </div>
+        <div class="hero-rodape micro">
+          <span>HTML / CSS / JAVASCRIPT</span
+          ><a href="#projetos">ROLE PARA EXPLORAR ↓</a
+          ><span class="edicao">EM CONSTANTE EVOLUÇÃO</span>
         </div>
       </section>
-
-      <section class="secao projetos" id="projetos">
+      <section
+        class="projetos container secao"
+        id="projetos"
+        aria-labelledby="titulo-projetos"
+      >
         <div class="titulo-secao">
-          <p class="rotulo">02 / Projetos</p>
-          <h2>Aprendizado em prática.</h2>
-        </div>
-
-        <article class="projeto">
-          <div class="preview" aria-hidden="true">
-            <span class="preview-numero">001</span>
-            <span class="preview-texto">hello, world<span>_</span></span>
-            <span class="preview-legenda">Meu primeiro passo na web</span>
-          </div>
-
-          <div class="projeto-info">
-            <div>
-              <p class="rotulo">Design & desenvolvimento</p>
-              <h3>Meu portfólio pessoal</h3>
-            </div>
-            <span class="status">Em construção</span>
-          </div>
-
-          <p class="descricao">
-            Meu primeiro site: um espaço para apresentar quem sou,
-            praticar desenvolvimento web e acompanhar minha evolução.
+          <p class="micro">01 / TRABALHOS SELECIONADOS</p>
+          <h2>Da ideia<br />à <span>prática.</span></h2>
+          <p class="texto-intro">
+            Projetos de estudo com desafios reais.<br />Interface, lógica e
+            aprendizado em cada etapa.
           </p>
+        </div>
+        <article class="projeto" aria-labelledby="theboys">
+          <div class="projeto-cabecalho">
+            <h3 id="theboys">The Boys<span>Agenda automotiva</span></h3>
+            <span class="estado">PROTÓTIPO FUNCIONAL</span>
+          </div>
+          <div
+            class="capa capa-agenda"
+            aria-label="Prévia ilustrativa da agenda The Boys"
+          >
+            <div class="janela agenda-demo">
+              <div class="barra-janela">
+                <span class="pontos">● ● ●</span
+                ><span>THE BOYS<span class="vermelho">.</span></span
+                ><span>OPERAÇÃO</span>
+              </div>
+              <div class="demo-corpo">
+                <p class="micro vermelho">ESTÉTICA AUTOMOTIVA</p>
+                <h4>Seu dia, organizado.</h4>
+                <div class="metricas-demo">
+                  <div>Agendados<strong>04</strong></div>
+                  <div>Em atendimento<strong>02</strong></div>
+                  <div>Concluídos<strong>06</strong></div>
+                </div>
+                <div class="linha-demo">
+                  <span>09:30 — 11:00</span><strong>Lavagem completa</strong
+                  ><span class="pill-demo">Em atendimento</span>
+                </div>
+                <div class="linha-demo">
+                  <span>11:00 — 12:30</span><strong>Lavagem por fora</strong
+                  ><span>Agendado</span>
+                </div>
+              </div>
+            </div>
+            <span class="legenda-demo"
+              >PRÉVIA ILUSTRATIVA · DADOS FICTÍCIOS</span
+            >
+          </div>
+          <div class="projeto-detalhes">
+            <p>
+              Uma agenda para explorar a rotina de uma estética automotiva: duas
+              vagas simultâneas, bloqueio de conflitos, edição, pagamentos e
+              fechamento diário.
+            </p>
+            <div>
+              <ul class="tags" aria-label="Tecnologias da agenda">
+                <li>JavaScript</li>
+                <li>CSS</li>
+                <li>localStorage</li>
+              </ul>
+              <p class="nota">
+                Em desenvolvimento. Dados locais no navegador; ainda sem uso
+                compartilhado pela equipe.
+              </p>
+            </div>
+          </div>
+          <details class="bastidores">
+            <summary>
+              Por dentro do projeto <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              <strong>Desafio:</strong> organizar reservas sem sobrepor a mesma
+              vaga. <strong>Prática:</strong> manipulação do DOM, validação,
+              persistência local e separação entre serviço concluído e pagamento
+              recebido. Próxima etapa: backend e banco de dados.
+            </p>
+          </details>
+        </article>
+        <article class="projeto" aria-labelledby="nathalia">
+          <div class="projeto-cabecalho">
+            <h3 id="nathalia">
+              Nathália Sindeaux<span>Apresentação pessoal</span>
+            </h3>
+            <span class="estado">EM DESENVOLVIMENTO</span>
+          </div>
+          <div
+            class="capa capa-nathalia"
+            aria-label="Composição ilustrativa da identidade do site Nathália Sindeaux"
+          >
+            <div class="editorial-demo">
+              <div class="editorial-nav">
+                <span>Nathália Sindeaux</span
+                ><span>TRAJETÓRIA / INTERESSES</span>
+              </div>
+              <p class="micro">GRADUANDA EM NUTRIÇÃO</p>
+              <h4>Alimentação,<br />movimento e<br /><em>cuidado.</em></h4>
+              <div class="editorial-base">
+                <span>Uma jornada de aprendizado.</span
+                ><span aria-hidden="true">↗</span>
+              </div>
+            </div>
+            <span class="legenda-demo"
+              >ESTUDO VISUAL · COMPOSIÇÃO ILUSTRATIVA</span
+            >
+          </div>
+          <div class="projeto-detalhes">
+            <p>
+              Um site de apresentação para uma graduanda em Nutrição. Identidade
+              em verde e bege, fotografia, tipografia editorial e navegação
+              responsiva.
+            </p>
+            <div>
+              <ul class="tags" aria-label="Tecnologias do site Nathália">
+                <li>HTML semântico</li>
+                <li>CSS responsivo</li>
+              </ul>
+              <p class="nota">
+                Projeto em construção. Apresentação pessoal e trajetória
+                acadêmica.
+              </p>
+            </div>
+          </div>
+          <details class="bastidores">
+            <summary>
+              Por dentro do projeto <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              <strong>Desafio:</strong> transformar uma identidade pessoal em
+              uma página acolhedora e legível.
+              <strong>Prática:</strong> composição, hierarquia visual,
+              enquadramento de imagens e adaptação para telas menores.
+            </p>
+          </details>
         </article>
       </section>
+      <section
+        class="sobre container secao"
+        id="sobre"
+        aria-labelledby="titulo-sobre"
+      >
+        <p class="micro">02 / QUEM ESTÁ POR TRÁS</p>
+        <div class="sobre-grid">
+          <h2 id="titulo-sobre">
+            Curioso por natureza.<br /><span>Dev em construção.</span>
+          </h2>
+          <div>
+            <p class="sobre-destaque">
+              Sou Alessandro Gava. Estou construindo minha base em
+              desenvolvimento web, um projeto e uma descoberta de cada vez.
+            </p>
+            <p class="descricao">
+              Gosto de entender como as coisas funcionam e transformar ideias em
+              interfaces úteis. Hoje estudo HTML, CSS e JavaScript, uso Git e
+              GitHub e quero aprofundar meus conhecimentos em backend e banco de
+              dados.
+            </p>
+            <ul class="tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Git / GitHub</li>
+            </ul>
+            <button
+              class="curiosidade-botao"
+              id="botao-curiosidade"
+              type="button"
+              aria-expanded="false"
+              aria-controls="curiosidade"
+            >
+              Fora do código +
+            </button>
+            <p id="curiosidade" class="descricao" hidden>
+              Gosto de passar tempo com minha namorada, jogar videogame e
+              acompanhar Fórmula 1. Carros e tecnologia também estão entre
+              minhas paixões.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contato container secao"
+        id="contato"
+        aria-labelledby="titulo-contato"
+      >
+        <p class="micro">03 / PRÓXIMA CONEXÃO</p>
+        <h2 id="titulo-contato">
+          Vamos trocar<br />uma <span>ideia?</span
+          ><span class="seta-contato" aria-hidden="true">↗</span>
+        </h2>
+        <div class="contato-base">
+          <p>
+            Busco minha primeira oportunidade em tecnologia.<br />Quero
+            aprender, contribuir e construir junto.
+          </p>
+          <a
+            class="botao"
+            href="https://github.com/aleezmzk"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Encontre-me no GitHub ↗</a
+          >
+        </div>
+      </section>
     </main>
-
-    <footer class="rodape">
-      <a class="logo" href="#" aria-label="Voltar ao início">ag<span>.</span></a>
-      <p>Feito por Alessandro. Um passo de cada vez.</p>
-      <a href="#">Voltar ao topo ↑</a>
+    <footer class="container rodape">
+      <a class="logo" href="#inicio">ag<span>.</span></a>
+      <p>Alessandro Gava · Feito com HTML, CSS e JavaScript.</p>
+      <a href="#inicio">Voltar ao início ↑</a>
     </footer>
-
     <button
-        id="voltar-topo"
-        class="voltar-topo"
-        ype="button"
-        aria-label="Voltar ao topo"
-        hidden
->
-  ↑
-</button>
-
-    <script src="script.js"></script>
+      id="voltar-topo"
+      class="voltar-topo"
+      type="button"
+      aria-label="Voltar ao início"
+      hidden
+    >
+      ↑
+    </button>
   </body>
 </html>

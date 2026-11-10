@@ -1,79 +1,49 @@
-const botaoTema = document.querySelector("#botao-tema");
-
-// Aplica o tema e atualiza o botão.
-function aplicarTema(temaEscuroAtivo) {
-  document.body.classList.toggle("tema-escuro", temaEscuroAtivo);
-
-  botaoTema.textContent = temaEscuroAtivo
-    ? "Tema claro ☀"
-    : "Tema escuro ☾";
-
-  botaoTema.setAttribute("aria-pressed", String(temaEscuroAtivo));
-
-  botaoTema.setAttribute(
-    "aria-label",
-    temaEscuroAtivo ? "Ativar tema claro" : "Ativar tema escuro"
-  );
+const botaoTema = document.querySelector('#botao-tema');
+function aplicarTema(escuro) {
+  document.body.classList.toggle('tema-escuro', escuro);
+  botaoTema.textContent = escuro ? 'Tema claro ☀' : 'Tema escuro ☾';
+  botaoTema.setAttribute('aria-pressed', String(escuro));
+  botaoTema.setAttribute('aria-label', escuro ? 'Ativar tema claro' : 'Ativar tema escuro');
+  document.querySelector('meta[name="theme-color"]').content = escuro ? '#101114' : '#f0efeb';
 }
-
-// Recupera a preferência salva, se o navegador permitir.
 let temaSalvo = null;
-
-try {
-  temaSalvo = localStorage.getItem("tema");
-} catch {
-  // O botão continua funcionando se o armazenamento estiver bloqueado.
-}
-
-aplicarTema(temaSalvo === "escuro");
-
-// Troca o tema e salva a nova preferência.
-botaoTema.addEventListener("click", () => {
-  const temaEscuroAtivo =
-    !document.body.classList.contains("tema-escuro");
-
-  aplicarTema(temaEscuroAtivo);
-
-  try {
-    localStorage.setItem(
-      "tema",
-      temaEscuroAtivo ? "escuro" : "claro"
-    );
-  } catch {
-    // Mantém a troca de tema mesmo sem conseguir salvar.
-  }
+try { temaSalvo = localStorage.getItem('tema'); } catch {}
+aplicarTema(temaSalvo !== 'claro');
+botaoTema.addEventListener('click', () => {
+  const escuro = !document.body.classList.contains('tema-escuro');
+  aplicarTema(escuro);
+  try { localStorage.setItem('tema', escuro ? 'escuro' : 'claro'); } catch {}
 });
-
-const botaoTopo = document.querySelector("#voltar-topo");
-
-function atualizarBotaoTopo() {
-  botaoTopo.hidden = window.scrollY < 300;
-}
-
-window.addEventListener("scroll", atualizarBotaoTopo, {
-  passive: true
-});
-
-botaoTopo.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
-});
-
+const botaoTopo = document.querySelector('#voltar-topo');
+function atualizarBotaoTopo() { botaoTopo.hidden = window.scrollY < 300; }
+window.addEventListener('scroll', atualizarBotaoTopo, { passive: true });
 atualizarBotaoTopo();
-
-const botaoCuriosidade = document.querySelector("#botao-curiosidade");
-const curiosidade = document.querySelector("#curiosidade");
-
-botaoCuriosidade.addEventListener("click", () => {
-  curiosidade.hidden = !curiosidade.hidden;
-
-  const estaAberta = !curiosidade.hidden;
-
-  botaoCuriosidade.setAttribute("aria-expanded", String(estaAberta));
-
-  botaoCuriosidade.textContent = estaAberta
-    ? "Esconder curiosidade −"
-    : "Uma curiosidade sobre mim +";
+botaoTopo.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  document.querySelector('.logo').focus({ preventScroll: true });
 });
+const curiosidade = document.querySelector('#curiosidade');
+const botaoCuriosidade = document.querySelector('#botao-curiosidade');
+botaoCuriosidade.addEventListener('click', () => {
+  curiosidade.hidden = !curiosidade.hidden;
+  botaoCuriosidade.setAttribute('aria-expanded', String(!curiosidade.hidden));
+  botaoCuriosidade.textContent = curiosidade.hidden ? 'Fora do código +' : 'Esconder curiosidade −';
+});
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach(({ target, isIntersecting }) => {
+      if (!isIntersecting) return;
+      target.classList.add('visivel');
+      observador.unobserve(target);
+    });
+  }, { threshold: 0 });
+  document.querySelectorAll('.projeto, .sobre-grid, .contato-base').forEach((elemento) => {
+    if (elemento.getBoundingClientRect().top < window.innerHeight) return;
+    elemento.classList.add('revelar');
+    observador.observe(elemento);
+  });
+  document.addEventListener('focusin', (evento) => {
+    const bloco = evento.target.closest('.revelar');
+    if (bloco) { bloco.classList.add('visivel'); observador.unobserve(bloco); }
+  });
+}
