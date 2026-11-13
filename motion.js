@@ -46,7 +46,22 @@
     .querySelectorAll(".motion-letter")
     .forEach((el) => el.setAttribute("aria-hidden", "true"));
   const star = document.querySelector(".asterisco");
-  star.innerHTML = '<span class="motion-star">✳</span>';
+  star.innerHTML = `
+  <span class="motion-star">
+    <svg
+      viewBox="0 0 100 100"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="6"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M50 4v92M4 50h92M17 17l66 66M17 83l66-66"/>
+    </svg>
+  </span>
+`;
   const progress = document.createElement("div");
   progress.className = "scroll-progress";
   progress.setAttribute("aria-hidden", "true");
