@@ -218,7 +218,20 @@
       label.textContent = text;
 
       const symbol = document.createElement("b");
-      symbol.textContent = "✳";
+      symbol.innerHTML = `
+  <svg
+    viewBox="0 0 100 100"
+    width="1em"
+    height="1em"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="6"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M50 4v92M4 50h92M17 17l66 66M17 83l66-66"/>
+  </svg>
+`;
 
       group.append(label, symbol);
     });
@@ -296,4 +309,3 @@
 
   render();
 })();
-

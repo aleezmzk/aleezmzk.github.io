@@ -562,7 +562,9 @@ body {
   padding-block: 8px;
   font-size: 14px;
   border-bottom: 1px solid var(--linha);
-  transition: color 0.25s, border-color 0.25s;
+  transition:
+    color 0.25s,
+    border-color 0.25s;
 }
 
 .link-secundario:hover {
@@ -708,4 +710,21 @@ body {
   .projeto-links {
     grid-column: 2;
   }
+}
+.asterisco svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+.motion-band-group b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.motion-band-group b svg {
+  display: block;
+  width: 0.85em;
+  height: 0.85em;
 }
