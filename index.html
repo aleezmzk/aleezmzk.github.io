@@ -10,7 +10,9 @@
     <meta name="theme-color" content="#101114" />
     <title>Alessandro Gava — Desenvolvimento web</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="motion.css" />
     <script src="script.js" defer></script>
+    <script src="motion.js" defer></script>
   </head>
   <body class="tema-escuro" id="inicio">
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -138,14 +140,46 @@
           </div>
           <details class="bastidores">
             <summary>
-              Por dentro do projeto <span aria-hidden="true">+</span>
+              Decisões e aprendizados
+              <span aria-hidden="true">+</span>
             </summary>
-            <p>
-              <strong>Desafio:</strong> organizar reservas sem sobrepor a mesma
-              vaga. <strong>Prática:</strong> manipulação do DOM, validação,
-              persistência local e separação entre serviço concluído e pagamento
-              recebido. Próxima etapa: backend e banco de dados.
-            </p>
+
+            <div class="estudo-projeto">
+              <div>
+                <h4>O problema</h4>
+                <p>
+                  Organizar os agendamentos de uma estética automotiva,
+                  considerando duas vagas simultâneas e evitando conflitos de
+                  horário na mesma vaga.
+                </p>
+              </div>
+
+              <div>
+                <h4>O que implementei</h4>
+                <p>
+                  Cadastro e edição de agendamentos, bloqueio de conflitos,
+                  controle de pagamentos e fechamento diário, com dados salvos
+                  no navegador.
+                </p>
+              </div>
+
+              <div>
+                <h4>O que estou aprendendo</h4>
+                <p>
+                  Manipulação do DOM, validação de informações e persistência
+                  com localStorage. Também trabalhei a diferença entre concluir
+                  um serviço e receber o pagamento.
+                </p>
+              </div>
+
+              <div>
+                <h4>Próximo passo</h4>
+                <p>
+                  Desenvolver um backend com banco de dados para permitir o uso
+                  compartilhado pela equipe.
+                </p>
+              </div>
+            </div>
           </details>
         </article>
         <article class="projeto" aria-labelledby="nathalia">
@@ -194,14 +228,43 @@
           </div>
           <details class="bastidores">
             <summary>
-              Por dentro do projeto <span aria-hidden="true">+</span>
+              Decisões e aprendizados
+              <span aria-hidden="true">+</span>
             </summary>
-            <p>
-              <strong>Desafio:</strong> transformar uma identidade pessoal em
-              uma página acolhedora e legível.
-              <strong>Prática:</strong> composição, hierarquia visual,
-              enquadramento de imagens e adaptação para telas menores.
-            </p>
+
+            <div class="estudo-projeto">
+              <div>
+                <h4>A proposta</h4>
+                <p>
+                  Criar uma apresentação pessoal para uma estudante de Nutrição,
+                  destacando sua trajetória acadêmica e seus interesses.
+                </p>
+              </div>
+
+              <div>
+                <h4>A direção visual</h4>
+                <p>
+                  Verde e bege, tipografia editorial e uma composição acolhedora
+                  para traduzir a identidade da página.
+                </p>
+              </div>
+
+              <div>
+                <h4>O que estou praticando</h4>
+                <p>
+                  HTML semântico, hierarquia visual e layouts responsivos com
+                  CSS.
+                </p>
+              </div>
+
+              <div>
+                <h4>Etapa atual</h4>
+                <p>
+                  Projeto em desenvolvimento, com foco na apresentação do
+                  conteúdo e na adaptação para diferentes telas.
+                </p>
+              </div>
+            </div>
           </details>
         </article>
       </section>
@@ -232,20 +295,6 @@
               <li>JavaScript</li>
               <li>Git / GitHub</li>
             </ul>
-            <button
-              class="curiosidade-botao"
-              id="botao-curiosidade"
-              type="button"
-              aria-expanded="false"
-              aria-controls="curiosidade"
-            >
-              Fora do código +
-            </button>
-            <p id="curiosidade" class="descricao" hidden>
-              Gosto de passar tempo com minha namorada, jogar videogame e
-              acompanhar Fórmula 1. Carros e tecnologia também estão entre
-              minhas paixões.
-            </p>
           </div>
         </div>
       </section>
@@ -255,22 +304,40 @@
         aria-labelledby="titulo-contato"
       >
         <p class="micro">03 / PRÓXIMA CONEXÃO</p>
+
         <h2 id="titulo-contato">
-          Vamos trocar<br />uma <span>ideia?</span
-          ><span class="seta-contato" aria-hidden="true">↗</span>
+          Vamos trocar<br />
+          uma <span>ideia?</span>
+          <span class="seta-contato" aria-hidden="true">↗</span>
         </h2>
+
         <div class="contato-base">
           <p>
-            Busco minha primeira oportunidade em tecnologia.<br />Quero
-            aprender, contribuir e construir junto.
+            Busco minha primeira oportunidade em tecnologia.<br />
+            Quero aprender, contribuir e construir junto.
           </p>
-          <a
-            class="botao"
-            href="https://github.com/aleezmzk"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Encontre-me no GitHub ↗</a
-          >
+
+          <div class="contato-links">
+            <a
+              class="botao"
+              href="https://www.linkedin.com/in/alessandro-gava-9a256844a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vamos conversar no LinkedIn
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="link-secundario"
+              href="https://github.com/aleezmzk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conheça meu GitHub
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>

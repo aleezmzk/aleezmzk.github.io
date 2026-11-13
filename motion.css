@@ -1,0 +1,698 @@
+/* Motion layer: readable without JavaScript; transforms use separate wrappers. */
+body {
+  transition:
+    background-color 0.6s,
+    color 0.6s;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(ellipse at 80% 8%, #8ca6ff12, transparent 55%);
+}
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--acento);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 100;
+  pointer-events: none;
+}
+.hero {
+  position: relative;
+}
+.hero h1 {
+  position: relative;
+  z-index: 1;
+}
+.motion-letter {
+  display: inline-block;
+  animation: letter-enter 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i) * 55ms + 100ms);
+}
+@keyframes letter-enter {
+  from {
+    opacity: 0;
+    transform: translateY(85%) rotate(9deg);
+    filter: blur(9px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+.motion-star {
+  display: inline-block;
+  animation: star-orbit 22s linear infinite;
+}
+@keyframes star-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hero .asterisco {
+  transform: rotate(var(--star-turn, 0deg));
+}
+.ponto {
+  animation: signal 2.8s ease-out infinite;
+}
+@keyframes signal {
+  50% {
+    box-shadow: 0 0 0 9px #8ca6ff00;
+  }
+}
+.hero-topo,
+.hero-base,
+.hero-rodape,
+.cabecalho {
+  animation: surface-enter 1s 0.35s both;
+}
+@keyframes surface-enter {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+nav a {
+  position: relative;
+  padding-block: 8px;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--acento);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+}
+nav a:hover::after,
+nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.botao {
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    box-shadow 0.3s;
+  will-change: transform;
+}
+.botao:hover {
+  background: var(--acento);
+  color: var(--fundo);
+  box-shadow: 0 8px 38px #8ca6ff22;
+}
+.botao span {
+  transition: rotate 0.4s;
+}
+.botao:hover span {
+  rotate: 45deg;
+}
+.motion-reveal {
+  opacity: 0;
+  translate: 0 55px;
+  filter: blur(5px);
+  transition:
+    opacity 0.9s,
+    translate 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s;
+}
+.motion-reveal.motion-visible {
+  opacity: 1;
+  translate: 0 0;
+  filter: blur(0);
+}
+.capa {
+  perspective: 1100px;
+  isolation: isolate;
+}
+.capa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    #ffffff1c,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.capa:hover::after {
+  opacity: 1;
+}
+.capa .janela,
+.capa .editorial-demo {
+  transform: translateY(var(--float-y, 0px)) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg)) rotate(var(--rest-angle, -2deg));
+  transition: transform 0.35s ease-out;
+  will-change: transform;
+}
+.capa .editorial-demo {
+  --rest-angle: 1.5deg;
+}
+.capa:hover .janela,
+.capa:hover .editorial-demo {
+  --rest-angle: 0deg;
+}
+.projeto-cabecalho h3 {
+  transition:
+    color 0.35s,
+    translate 0.35s;
+}
+.projeto:hover .projeto-cabecalho h3 {
+  color: var(--acento);
+  translate: 8px 0;
+}
+.tags li {
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    translate 0.3s;
+}
+.tags li:hover {
+  border-color: var(--acento);
+  background: #8ca6ff18;
+  translate: 0 -4px;
+}
+.word-motion {
+  color: var(--suave);
+  transition: color 0.3s;
+}
+.word-motion.word-active {
+  color: var(--texto);
+}
+.seta-contato {
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+.contato:hover .seta-contato {
+  color: var(--acento);
+}
+.motion-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--acento);
+  color: var(--fundo);
+  font:
+    10px ui-monospace,
+    monospace;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.5;
+  transition:
+    opacity 0.2s,
+    scale 0.3s;
+}
+.motion-cursor.active {
+  opacity: 1;
+  scale: 1;
+}
+.bastidores[open] p {
+  animation: surface-enter 0.45s both;
+}
+.voltar-topo {
+  transition:
+    background 0.3s,
+    rotate 0.3s;
+}
+.voltar-topo:hover {
+  background: var(--acento);
+  rotate: 360deg;
+}
+@media (max-width: 600px) {
+  .motion-letter {
+    animation-duration: 0.8s;
+  }
+  .motion-cursor {
+    display: none;
+  }
+  .motion-reveal {
+    translate: 0 25px;
+    filter: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal {
+    opacity: 1;
+    translate: none;
+    filter: none;
+  }
+  .motion-letter {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .word-motion {
+    color: var(--texto);
+  }
+  .motion-cursor {
+    display: none;
+  }
+  .capa .janela,
+  .capa .editorial-demo,
+  .hero .asterisco {
+    transform: none !important;
+  }
+}
+.surname-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+/* ===== NOVA DIREÇÃO VISUAL ===== */
+
+body {
+  overflow-x: clip;
+}
+
+.hero {
+  min-height: calc(100svh - 105px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: min(65vw, 850px);
+  aspect-ratio: 1;
+  top: 0;
+  right: -20%;
+  border: 1px solid var(--acento);
+  border-radius: 50%;
+  opacity: 0.14;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: clamp(80px, 15vw, 210px);
+  margin: 45px 0;
+  transform-origin: left center;
+  will-change: transform, opacity;
+}
+
+.sobrenome {
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hero .asterisco {
+  margin-right: 5%;
+  font-size: 0.8em;
+}
+
+.hero-base {
+  padding-bottom: 20px;
+}
+
+.hero-rodape {
+  margin-top: 45px;
+}
+
+/* Faixa entre a abertura e os projetos */
+
+.motion-band {
+  overflow: hidden;
+  background: var(--acento);
+  color: var(--fundo);
+  padding: 22px 0;
+  margin: 65px 0 20px;
+  rotate: -3deg;
+  scale: 1.03;
+}
+
+.motion-band-track {
+  display: flex;
+  width: max-content;
+  animation: band-travel 28s linear infinite;
+}
+
+.motion-band-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+  white-space: nowrap;
+  font-size: clamp(26px, 4vw, 58px);
+  font-weight: 650;
+  letter-spacing: -0.05em;
+}
+
+.motion-band-group b {
+  font-weight: 400;
+}
+
+@keyframes band-travel {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Projetos com mais presença */
+
+.projetos {
+  padding-top: 120px;
+}
+
+.titulo-secao h2 {
+  font-size: clamp(64px, 9vw, 128px);
+}
+
+.projeto {
+  position: relative;
+  margin-bottom: 120px;
+}
+
+.projeto-cabecalho {
+  padding-block: 15px;
+}
+
+.projeto-cabecalho h3 {
+  font-size: clamp(30px, 4vw, 54px);
+}
+
+.capa {
+  min-height: 600px;
+  border-radius: 20px;
+  padding: 80px 8%;
+}
+
+.capa-agenda {
+  background:
+    radial-gradient(circle at 80% 10%, #6078c355, transparent 55%), #202638;
+}
+
+.capa-nathalia {
+  background:
+    radial-gradient(circle at 20% 20%, #ffffff88, transparent 60%), #d8ddc9;
+}
+
+.projeto .janela,
+.projeto .editorial-demo {
+  max-width: 950px;
+}
+
+.projeto-detalhes {
+  padding-block: 15px;
+}
+
+.projeto-detalhes > p {
+  font-size: 18px;
+}
+
+/* Sobre e encerramento */
+
+.sobre {
+  padding-block: 140px;
+}
+
+.sobre-destaque {
+  font-size: clamp(26px, 3vw, 42px);
+  line-height: 1.35;
+}
+
+.contato {
+  min-height: 80svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contato h2 {
+  font-size: clamp(70px, 11vw, 155px);
+}
+
+.contato .seta-contato {
+  color: var(--acento);
+}
+
+/* Mockup permanece em cena durante a leitura dos detalhes */
+
+@media (min-width: 1000px) and (min-height: 750px) {
+  .projeto {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    column-gap: 45px;
+    align-items: start;
+  }
+
+  .projeto-cabecalho {
+    grid-column: 1 / -1;
+  }
+
+  .projeto .capa {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    position: sticky;
+    top: 45px;
+    min-height: 520px;
+    padding: 65px 6%;
+  }
+
+  .projeto-detalhes {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 35px;
+    min-height: 450px;
+    margin-top: 0;
+  }
+
+  .bastidores {
+    grid-column: 2;
+    margin-bottom: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: calc(90svh - 100px);
+  }
+
+  .hero h1 {
+    font-size: 17vw;
+  }
+
+  .hero .asterisco {
+    margin-right: 0;
+    font-size: 0.65em;
+  }
+
+  .motion-band {
+    margin-top: 35px;
+    padding-block: 16px;
+  }
+
+  .projetos {
+    padding-top: 75px;
+  }
+
+  .capa {
+    min-height: 330px;
+    padding: 45px 5%;
+    border-radius: 12px;
+  }
+
+  .projeto {
+    margin-bottom: 65px;
+  }
+
+  .sobre {
+    padding-block: 80px;
+  }
+
+  .contato {
+    min-height: 65svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .motion-band-track {
+    animation: none;
+  }
+}
+/* Contato e apresentação dos projetos */
+
+.contato-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.link-secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding-block: 8px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--linha);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.link-secundario:hover {
+  color: var(--acento);
+  border-color: var(--acento);
+}
+
+.link-secundario span {
+  transition: transform 0.25s;
+}
+
+.link-secundario:hover span {
+  transform: translate(3px, -3px);
+}
+
+.estudo-projeto {
+  display: grid;
+  gap: 24px;
+  padding-top: 28px;
+}
+
+.estudo-projeto h4 {
+  margin: 0 0 8px;
+  color: var(--texto);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.estudo-projeto p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--suave);
+}
+
+.bastidores summary {
+  min-height: 44px;
+  align-items: center;
+}
+
+.bastidores summary span {
+  transition: transform 0.3s;
+}
+
+.bastidores[open] summary span {
+  transform: rotate(45deg);
+}
+
+/* Conteúdo aberto entra sem atrasar a leitura. */
+
+.bastidores[open] .estudo-projeto {
+  animation: surface-enter 0.35s both;
+}
+
+@media (max-width: 600px) {
+  .contato-links {
+    width: 100%;
+  }
+
+  .contato-links .botao {
+    max-width: 100%;
+    gap: 20px;
+    line-height: 1.5;
+  }
+
+  .cabecalho nav {
+    flex-wrap: wrap;
+  }
+
+  .projeto-cabecalho {
+    flex-wrap: wrap;
+  }
+
+  .estado {
+    max-width: none;
+  }
+
+  .estudo-projeto {
+    gap: 22px;
+  }
+}
+
+@media (hover: none) {
+  .botao:hover {
+    transform: none;
+  }
+
+  .projeto:hover .projeto-cabecalho h3 {
+    translate: none;
+  }
+}
+/* Refinamento de proporções e espaçamento */
+
+.motion-band {
+  margin: 35px 0 0;
+  padding-block: 16px;
+}
+
+.motion-band-group {
+  font-size: clamp(24px, 3.2vw, 46px);
+}
+
+.projetos {
+  padding-top: 75px;
+}
+
+.titulo-secao {
+  margin-bottom: 40px;
+}
+
+.titulo-secao h2 {
+  font-size: clamp(48px, 6.5vw, 92px);
+  line-height: 1.05;
+}
+
+@media (max-width: 600px) {
+  .motion-band {
+    margin-top: 24px;
+    padding-block: 12px;
+  }
+
+  .projetos {
+    padding-top: 50px;
+  }
+
+  .titulo-secao {
+    margin-bottom: 28px;
+  }
+
+  .titulo-secao h2 {
+    font-size: clamp(42px, 11vw, 64px);
+  }
+}

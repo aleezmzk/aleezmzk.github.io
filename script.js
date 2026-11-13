@@ -19,15 +19,8 @@ function atualizarBotaoTopo() { botaoTopo.hidden = window.scrollY < 300; }
 window.addEventListener('scroll', atualizarBotaoTopo, { passive: true });
 atualizarBotaoTopo();
 botaoTopo.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   document.querySelector('.logo').focus({ preventScroll: true });
-});
-const curiosidade = document.querySelector('#curiosidade');
-const botaoCuriosidade = document.querySelector('#botao-curiosidade');
-botaoCuriosidade.addEventListener('click', () => {
-  curiosidade.hidden = !curiosidade.hidden;
-  botaoCuriosidade.setAttribute('aria-expanded', String(!curiosidade.hidden));
-  botaoCuriosidade.textContent = curiosidade.hidden ? 'Fora do código +' : 'Esconder curiosidade −';
 });
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observador = new IntersectionObserver((entradas) => {
